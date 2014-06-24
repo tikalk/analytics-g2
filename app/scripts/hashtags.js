@@ -2,6 +2,7 @@
 
 var React = require("react");
 var hashtag = require("./hashtag");
+var PieChart =require("./pieChart");
 
 var Hashtags = React.createClass({
     getInitialState: function() {
@@ -11,6 +12,10 @@ var Hashtags = React.createClass({
         var self = this;
         $.getJSON( "json/hashtags.json", function( data ) {
             self.setState({data: data});
+
+            React.renderComponent(
+                <PieChart data={data}/>, document.getElementById('dataDiv')
+            );
         });
     },
     render: function ()
