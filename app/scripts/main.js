@@ -1,9 +1,11 @@
 /** @jsx React.DOM */
 
 var React = require("react");
-var Hello = require("./hello");
+var Users = require("./users");
+//var Hello = require("./hello");
 
-React.renderComponent(<Hello>Hello from <b>React</b>!</Hello>, document.getElementById("container"), function ()
+React.renderComponent(<Users></Users>, document.getElementById("users"), function ()
 {
-    console.info("mounted");
+    //read users list
+
 })
