@@ -7,7 +7,8 @@
     "jquery": "~1.11.0",
     "react":"~0.10.0",
     "underscore": "~1.5.1",
-    "requirejs": "~2.1.8"
+    "requirejs": "~2.1.8",
+    "socket.io": "~0.9.16"
   },
   "devDependencies": {}
 }

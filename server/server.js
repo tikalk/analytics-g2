@@ -10,19 +10,18 @@ var app = express();
 var server = require('http').createServer(app)
 var io = require('socket.io').listen(server);
 var device  = require('express-device');
-
-var runningPortNumber = process.env.PORT;
+var runningPortNumber = 1337;
 
 
 app.configure(function(){
-	// I need to access everything in '/public' directly
+	/*// I need to access everything in '/public' directly
 	app.use(express.static(__dirname + '/public'));
 
 	//set the view engine
 	app.set('view engine', 'ejs');
 	app.set('views', __dirname +'/views');
 
-	app.use(device.capture());
+	app.use(device.capture());*/
 });
 
 
@@ -34,15 +33,13 @@ app.use(function(req, res, next){
 	// goes onto the next function in line
 	next();
 });
-
-app.get("/", function(req, res){
+/*app.get("/", function(req, res){
 	res.render('index', {});
-});
+});*/
 
 
 io.sockets.on('connection', function (socket) {
-
-	io.sockets.emit('blast', {msg:"<span style=\"color:red !important\">someone connected</span>"});
+	io.sockets.emit('blast', {msg:"aaa"});
 
 	socket.on('blast', function(data, fn){
 		console.log(data);
