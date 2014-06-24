@@ -1,16 +1,17 @@
 /** @jsx React.DOM */
 
 var React = require("react");
-var Hello = require("./hello");
+
+//var Hello = require("./hello");
+var Users = require("./users");
 var serverConnector = require("./serverConnector");
 var socket = serverConnector.openSocket('http://127.0.0.1:1337/');
-
 serverConnector.addSocketEvent(socket,"blast",function(data){
 
 });
 
-
-React.renderComponent(<Hello>Hello from <b>React</b>!</Hello>, document.getElementById("container"), function ()
+React.renderComponent(<Users></Users>, document.getElementById("users"), function ()
 {
-    console.info("mounted");
+    //read users list
+
 })
