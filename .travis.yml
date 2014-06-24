@@ -2,9 +2,5 @@ language: node_js
 node_js:
   - "0.11"
   - "0.10"
-script: cd app
-script: npm install
-script: gulp build
-script: cd ../server
-script: npm install
-script: node server
+script: cd app && npm install && gulp build
+script: cd ../server && npm install && node server
