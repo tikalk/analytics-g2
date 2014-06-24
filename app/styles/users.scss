@@ -39,6 +39,9 @@ a{
     margin-top:10px;
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
+    border:1px solid lightgray;
+    -webkit-box-shadow: 0 0 10px 1px #444;
+    box-shadow: 0 0 10px 1px #444;
     img{
       max-width:150px;
       height: auto;
