@@ -6,7 +6,12 @@ var Hashtag = React.createClass({
     render: function ()
     {
         return (
-            <div className="hashtag" id={this.props.id}>{ this.props.children } </div>
+            <li className="active">
+                <a href="#">
+                    <span className="badge pull-right">{this.props.count}</span>
+                { this.props.children }
+                </a>
+            </li>
             );
     }
 });
