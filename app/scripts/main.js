@@ -5,6 +5,7 @@ var React = require("react");
 //var Hello = require("./hello");
 var Users = require("./users");
 var hashtags = require("./hashtags");
+var info = require("./info");
 
 
 var serverConnector = require("./serverConnector");
@@ -13,7 +14,7 @@ serverConnector.addSocketEvent(socket,"blast",function(data){
 
 });
 
-React.renderComponent(<hashtags></hashtags>, document.getElementById("users"), function ()
+React.renderComponent(<info></info>, document.getElementById("info"), function ()
 {
     //read users list
 
