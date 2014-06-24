@@ -3,6 +3,7 @@ dist
 .tmp
 .sass-cache
 .idea
+app/scrips_js
 app/bower_components
 test/bower_components
 server/node_modules

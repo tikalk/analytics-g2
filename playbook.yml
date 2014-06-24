@@ -12,3 +12,9 @@
       sudo: yes
     - apt: name="scala" state="latest"
       sudo: yes
+    - name: download spark
+      action: shell cd /tmp && wget http://d3kbcqa49mib13.cloudfront.net/spark-1.0.0.tgz
+    - name: extract spark
+      action: shell cd /tmp/spark-1.0.0
+    - name: install spark
+      action: shell sbt/sbt assembly
