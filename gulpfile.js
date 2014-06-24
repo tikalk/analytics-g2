@@ -19,9 +19,14 @@ gulp.task('styles', function () {
 
 gulp.task('scripts', function () {
     return gulp.src('app/scripts/**/*.js')
-        .pipe($.jshint())
-        .pipe($.jshint.reporter(require('jshint-stylish')))
-        .pipe($.size());
+        //.pipe($.jshint())
+       // .pipe($.jshint.reporter(require('jshint-stylish')))
+        .pipe($.browserify({
+            transform: ["reactify"],
+            debug : !gulp.env.production
+        }))
+        .pipe(gulp.dest("app/scripts_js"));
+        //.pipe($.size());
 });
 
 gulp.task('html', ['styles', 'scripts'], function () {
@@ -113,7 +118,7 @@ gulp.task('wiredep', function () {
         .pipe(gulp.dest('app'));
 });
 
-gulp.task('watch', ['connect', 'serve'], function () {
+gulp.task('watch', ['build','connect', 'serve'], function () {
     var server = $.livereload();
 
     // watch for changes
