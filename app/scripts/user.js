@@ -9,6 +9,6 @@ var User = React.createClass({
             <div className="user"><img src={this.props.icon} className="icon"/> { this.props.children } </div>
             );
     }
-})
+});
 
 module.exports = User;
