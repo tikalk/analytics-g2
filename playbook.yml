@@ -1,0 +1,14 @@
+- hosts: db 
+  remote_user: vagrant
+  tasks:
+    - apt: name=mongodb state=latest update_cache=yes
+      sudo: yes
+    - service: name=mongodb state=started
+      sudo: yes
+- hosts: backend
+  remote_user: vagrant
+  tasks:
+    - apt: name="openjdk-7-jdk" state="latest" update_cache=yes
+      sudo: yes
+    - apt: name="scala" state="latest"
+      sudo: yes
