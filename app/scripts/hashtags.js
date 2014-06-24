@@ -7,27 +7,18 @@ var Hashtags = React.createClass({
    getInitialState: function() {
        return {data: []};
    },
-   /*componentWillMount: function() {
-       var self = this;
-       $.getJSON( "json/hashtags.json", function( data ) {
-           self.setState({data: data});
-       });
-   },*/
     onHashtagSelected : function(activeHashtag){
-        var self = this;
+        var idx = activeHashtag.props.id;
+        this.state.activeHashtagIdx = idx;
 
-        $.each(self.hashtags,function(idx,tag){
-            tag.setActive(tag === activeHashtag);
-        });
-
-        self.props.onHashtagSelected(self.hashtags[activeHashtag.props.id].props.children);
+        this.props.onHashtagSelected(this.hashtags[idx].props.children);
 
     },
     render: function ()
     {
         var self = this;
         this.hashtags = this.props.data.map(function (tag,idx) {
-            return <hashtag id={idx} count={tag.tag_num} onSelected={self.onHashtagSelected}>{tag.tag_name}</hashtag>;
+            return <hashtag id={idx} count={tag.tag_num} active={self.state.activeHashtagIdx === idx} onSelected={self.onHashtagSelected}>{tag.tag_name}</hashtag>;
         });
         return (
             <div className="hashtags">

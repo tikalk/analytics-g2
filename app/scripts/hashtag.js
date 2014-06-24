@@ -9,13 +9,9 @@ var Hashtag = React.createClass({
     onSelected: function(event) {
         this.props.onSelected(this);
     },
-    setActive: function(isActive) {
-        this.state.active = isActive;
-        this.forceUpdate();
-    },
     render: function ()
     {
-        var classNames = this.state.active ? 'active' : '';
+        var classNames = this.props.active ? 'active' : '';
         return (
             <li className={classNames} onClick={this.onSelected}>
 
