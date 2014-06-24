@@ -5,8 +5,12 @@ var React = require("react");
 var Image = React.createClass({
     render:function(){
         var url = this.props.url;
-        return (<div className='imageDiv'>
-            <img src={url} />
+        return (<div className='row'>
+            <div className='col-lg-12'>
+                <div className='imageDiv'>
+                <img src={url} className='img-circle'/>
+                </div>
+            </div>
         </div>
             )
     }
@@ -17,24 +21,20 @@ var Images = React.createClass({
     getInitialState: function() {
         return {};
     },
-    componentWillMount: function() {
-        var q = this.props.hash;
 
-        var url = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&callback=processResults&q=" + q;
-        $.get(url, function(data){
-            self.setState({
-                data:data
-            });
-        })
+    componentWillMount: function() {
+
     },
     render: function(){
-        this.images = this.state.data.map(function (image,idx) {
+        var self = this;
+
+        self.images =  this.props.images.map(function (image,idx) {
             return <Image url={image.url}> </Image>;
         });
 
         return (
             <div className="images">
-                <ul className="imagesUl">{this.images}</ul>
+                <ul className="imagesUl">{self.images}</ul>
             </div>
             );
     }

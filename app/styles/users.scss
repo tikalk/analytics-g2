@@ -1,3 +1,11 @@
+a{
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
 .users{
   .user{
     text-align: left;
@@ -12,5 +20,51 @@
 #dataDiv{
   svg{
     float:left;
+  }
+}
+
+.images{
+  .row{
+    margin-top:10px;
+
+  }
+  div.imageDiv{
+    width:200px;
+    height: 200px;
+
+    text-align: center;
+    display:table-cell;
+    vertical-align:middle;
+    float:none;
+    margin-top:10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    img{
+      max-width:150px;
+      height: auto;
+    }
+  }
+}
+.tweets{
+  margin-top:30px;
+  .tweet{
+
+    margin-top:20px;
+
+
+    .user{
+      padding-top:10px;
+      border:1px solid lightgray;
+      -webkit-border-radius: 10px 10px 10px 10px;
+      border-radius: 10px 10px 10px 10px;
+    }
+    .text{
+
+    }
+
+    .nameTag{
+      text-align: center;
+
+    }
   }
 }

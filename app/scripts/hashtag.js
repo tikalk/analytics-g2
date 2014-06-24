@@ -18,9 +18,11 @@ var Hashtag = React.createClass({
         var classNames = this.state.active ? 'active' : '';
         return (
             <li className={classNames} onClick={this.onSelected}>
+
                 <a href="#">
                     <span className="badge pull-right">{this.props.count}</span>
-                { this.props.children }
+
+                    <span>{'#'}</span>{ this.props.children }
                 </a>
             </li>
             );

@@ -2,34 +2,31 @@
 
 var React = require("react");
 var hashtag = require("./hashtag");
-var PieChart =require("./pieChart");
 
 var Hashtags = React.createClass({
-    getInitialState: function() {
-        return {data: []};
-    },
-    componentWillMount: function() {
-        var self = this;
-        $.getJSON( "json/hashtags.json", function( data ) {
-            self.setState({data: data});
-
-            React.renderComponent(
-                <PieChart data={data}/>, document.getElementById('dataDiv')
-            );
-        });
-    },
+   getInitialState: function() {
+       return {data: []};
+   },
+   /*componentWillMount: function() {
+       var self = this;
+       $.getJSON( "json/hashtags.json", function( data ) {
+           self.setState({data: data});
+       });
+   },*/
     onHashtagSelected : function(activeHashtag){
-        $.each(this.hashtags,function(idx,tag){
+        var self = this;
+
+        $.each(self.hashtags,function(idx,tag){
             tag.setActive(tag === activeHashtag);
         });
-        $.getJSON( "json/tweets.json?hash="+this.hashtags[activeHashtag.props.id], function( data ) {
-            self.setState({tweets: data});
-        });
+
+        self.props.onHashtagSelected(self.hashtags[activeHashtag.props.id].props.children);
+
     },
     render: function ()
     {
         var self = this;
-        this.hashtags = this.state.data.map(function (tag,idx) {
+        this.hashtags = this.props.data.map(function (tag,idx) {
             return <hashtag id={idx} count={tag.tag_num} onSelected={self.onHashtagSelected}>{tag.tag_name}</hashtag>;
         });
         return (
